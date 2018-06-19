@@ -1,1 +1,2 @@
 # wxVLC
+wxWindows licence
