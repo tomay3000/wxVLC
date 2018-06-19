@@ -53,7 +53,7 @@ Code::Blocks project is provided to build it.
 Further information
 -------------------
 
-We gladly welcome [your contributions].
+We gladly welcome your contributions.
 
 Have fun!
 
