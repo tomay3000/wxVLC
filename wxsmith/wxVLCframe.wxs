@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<wxsmith>
+	<object class="wxFrame" name="wxVLCFrame">
+		<title>wxVLC Media Player</title>
+		<centered>1</centered>
+		<icon>./res/vlc.ico</icon>
+		<bg>wxSYS_COLOUR_BTNFACE</bg>
+		<id_arg>0</id_arg>
+		<object class="wxBoxSizer" variable="BoxSizer1" member="yes">
+			<orient>wxVERTICAL</orient>
+			<object class="sizeritem">
+				<object class="wxImagePanel" name="ID_PNL_PLAYER" variable="Player_Pnl" member="yes">
+					<image>./res/vlc.png</image>
+					<bg>#000000</bg>
+					<minsize>-1,300</minsize>
+					<style>wxTAB_TRAVERSAL</style>
+					<handler function="OnToggleFullscreen" entry="EVT_LEFT_DCLICK" />
+					<handler function="OnMouseMove" entry="EVT_MOTION" />
+				</object>
+				<flag>wxEXPAND</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxStaticLine" name="ID_STATICLINE1" variable="StaticLine1" member="yes">
+					<size>10,-1</size>
+				</object>
+				<flag>wxALL|wxEXPAND</flag>
+				<border>5</border>
+			</object>
+			<object class="sizeritem">
+				<object class="wxPanel" name="ID_PNL_CONTROLS" variable="Controls_Pnl" member="yes">
+					<object class="wxBoxSizer" variable="BoxSizer2" member="no">
+						<orient>wxVERTICAL</orient>
+						<object class="sizeritem">
+							<object class="wxBoxSizer" variable="BoxSizer3" member="yes">
+								<object class="sizeritem">
+									<object class="wxStaticText" name="ID_STTCTXT_CURRTIME" variable="CurrTime_SttcTxt" member="yes">
+										<label>00:00:00</label>
+									</object>
+									<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+								</object>
+								<object class="sizeritem">
+									<object class="wxSlider" name="ID_SLDR_TIMELINE" variable="Timeline_Sldr" member="yes">
+										<max>10000</max>
+										<enabled>0</enabled>
+										<style>wxSL_BOTH|wxSL_SELRANGE</style>
+										<handler function="OnTimelineChanged" entry="EVT_COMMAND_SCROLL_THUMBTRACK" />
+										<handler function="OnTimelineChanged" entry="EVT_COMMAND_SLIDER_UPDATED" />
+									</object>
+									<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+									<option>1</option>
+								</object>
+								<object class="sizeritem">
+									<object class="wxStaticText" name="ID_STTCTXT_MOVIELENGTH" variable="MovieLength_SttcTxt" member="yes">
+										<label>00:00:00</label>
+									</object>
+									<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+								</object>
+							</object>
+							<flag>wxALL|wxEXPAND</flag>
+							<border>5</border>
+						</object>
+						<object class="sizeritem">
+							<object class="wxBoxSizer" variable="BoxSizer4" member="no">
+								<object class="sizeritem">
+									<object class="wxButton" name="ID_BTN_PLAYPAUSE" variable="Play_Pause_Btn" member="yes">
+										<label>Play &gt;</label>
+										<enabled>0</enabled>
+										<handler function="OnPlay_Pause" entry="EVT_BUTTON" />
+									</object>
+									<flag>wxALL|wxEXPAND</flag>
+									<border>5</border>
+								</object>
+								<object class="sizeritem">
+									<object class="wxButton" name="ID_BTN_STOP" variable="Stop_Btn" member="yes">
+										<label>Stop []</label>
+										<enabled>0</enabled>
+										<handler function="OnStop" entry="EVT_BUTTON" />
+									</object>
+									<flag>wxALL|wxEXPAND</flag>
+									<border>5</border>
+								</object>
+								<object class="sizeritem">
+									<object class="wxButton" name="ID_BTN_BACKWARD" variable="Backward_Btn" member="yes">
+										<label>Backward &lt;&lt;</label>
+										<enabled>0</enabled>
+										<handler function="OnBackward" entry="EVT_BUTTON" />
+									</object>
+									<flag>wxALL|wxEXPAND</flag>
+									<border>5</border>
+								</object>
+								<object class="sizeritem">
+									<object class="wxButton" name="ID_BTN_FORWARD" variable="Forward_Btn" member="yes">
+										<label>Forward &gt;&gt;</label>
+										<enabled>0</enabled>
+										<handler function="OnForward" entry="EVT_BUTTON" />
+									</object>
+									<flag>wxALL|wxEXPAND</flag>
+									<border>5</border>
+								</object>
+								<object class="spacer">
+									<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+									<option>1</option>
+								</object>
+								<object class="sizeritem">
+									<object class="wxStaticText" name="ID_STATICTEXT1" variable="StaticText1" member="yes">
+										<label>Volume</label>
+									</object>
+									<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+								</object>
+								<object class="sizeritem">
+									<object class="wxSlider" name="ID_SLDR_VOLUME" variable="Volume_Sldr" member="yes">
+										<value>100</value>
+										<size>50,-1d</size>
+										<style>wxSL_LABELS|wxSL_BOTH</style>
+										<handler function="OnVolumeChanged" entry="EVT_COMMAND_SCROLL_THUMBTRACK" />
+										<handler function="OnVolumeChanged" entry="EVT_COMMAND_SLIDER_UPDATED" />
+									</object>
+									<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+								</object>
+							</object>
+							<flag>wxALL|wxEXPAND</flag>
+							<border>5</border>
+						</object>
+					</object>
+				</object>
+				<flag>wxEXPAND</flag>
+				<border>5</border>
+			</object>
+		</object>
+		<object class="wxMenuBar" variable="MenuBar1" member="no">
+			<object class="wxMenu" variable="Menu1" member="no">
+				<label>&amp;File</label>
+				<object class="wxMenuItem" name="ID_MENUITEM1" variable="MenuItem3" member="yes">
+					<label>&amp;Open</label>
+					<accel>Ctrl-O</accel>
+					<help>Open the video file</help>
+					<handler function="OnOpen" entry="EVT_MENU" />
+				</object>
+				<object class="separator" />
+				<object class="wxMenuItem" name="idMenuQuit" variable="MenuItem1" member="no">
+					<label>Quit</label>
+					<accel>Alt-F4</accel>
+					<help>Quit the application</help>
+					<handler function="OnQuit" entry="EVT_MENU" />
+				</object>
+			</object>
+			<object class="wxMenu" variable="Menu2" member="no">
+				<label>Help</label>
+				<object class="wxMenuItem" name="idMenuAbout" variable="MenuItem2" member="no">
+					<label>About</label>
+					<accel>F1</accel>
+					<help>Show info about this application</help>
+					<handler function="OnAbout" entry="EVT_MENU" />
+				</object>
+			</object>
+		</object>
+		<object class="wxStatusBar" name="ID_STATUSBAR1" variable="StatusBar1" member="yes">
+			<fields>1</fields>
+			<widths>-1</widths>
+			<styles>wxSB_NORMAL</styles>
+		</object>
+		<object class="wxFileDialog" variable="OpenFile_Dlg" member="yes">
+			<message>Select an audio/video file</message>
+			<wildcard>All files (*.*)|*.*</wildcard>
+			<extra_code>OpenFile__Dlg-&gt;Center();</extra_code>
+			<style>wxFD_DEFAULT_STYLE|wxFD_FILE_MUST_EXIST</style>
+		</object>
+		<object class="wxTimer" name="ID_TIMER1" variable="Timer1" member="yes">
+			<interval>3000</interval>
+			<oneshot>1</oneshot>
+			<handler function="OnTimer1" entry="EVT_TIMER" />
+		</object>
+	</object>
+</wxsmith>
