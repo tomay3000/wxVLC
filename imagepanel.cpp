@@ -43,17 +43,17 @@ wxImagePanel::wxImagePanel() : wxPanel()
 
 wxImagePanel::wxImagePanel(wxWindow *parent,
                            wxWindowID winid /*= wxID_ANY*/,
-                           const wxPoint& pos /*= wxDefaultPosition*/,
-                           const wxSize& size /*= wxDefaultSize*/,
+                           const wxPoint &pos /*= wxDefaultPosition*/,
+                           const wxSize &size /*= wxDefaultSize*/,
                            long style /*= wxTAB_TRAVERSAL | wxNO_BORDER*/,
-                           const wxString& name /*= _T("ImagePanel")*/) :
+                           const wxString &name /*= _T("ImagePanel")*/) :
     wxPanel(parent, winid, pos, size, style, name)
 {
     Init();
 }
 
 wxImagePanel::wxImagePanel(wxWindow *parent,
-                           const wxString& file,
+                           const wxString &file,
                            wxBitmapType type /*= wxBITMAP_TYPE_ANY*/) :
     wxPanel(parent)
 {
@@ -69,39 +69,32 @@ wxImagePanel::~wxImagePanel()
     Unbind(wxEVT_PAINT, &wxImagePanel::PaintEvent, this);
 }
 
-void wxImagePanel::LoadFile(const wxString& file, wxBitmapType type /*= wxBITMAP_TYPE_ANY*/)
+void wxImagePanel::LoadFile(const wxString &file, wxBitmapType type /*= wxBITMAP_TYPE_ANY*/)
 {
     // Load the file... ideally add a check to see if loading was successful
     m_image.LoadFile(file, type);
 }
 
-void wxImagePanel::LoadFile(wxInputStream& stream, wxBitmapType type /*= wxBITMAP_TYPE_ANY*/)
+void wxImagePanel::LoadFile(wxInputStream &stream, wxBitmapType type /*= wxBITMAP_TYPE_ANY*/)
 {
     // Load the file... ideally add a check to see if loading was successful
     m_image.LoadFile(stream, type);
 }
 
-/*
- * Called by the system of wxWidgets when the panel needs
- * to be redrawn. You can also trigger this call by
- * calling Refresh()/Update().
- */
-
-void wxImagePanel::PaintEvent(wxPaintEvent& WXUNUSED(event))
+/* Called by the system of wxWidgets when the panel needs
+   to be redrawn. You can also trigger this call by calling Refresh()/Update(). */
+void wxImagePanel::PaintEvent(wxPaintEvent &WXUNUSED(event))
 {
     // Depending on your system you may need to look at double-buffered dcs
     wxPaintDC dc(this);
     Render(dc);
 }
 
-/*
- * Alternatively, you can use a clientDC to paint on the panel
- * at any time. Using this generally does not free you from
- * catching paint events, since it is possible that e.g. the window
- * manager throws away your drawing when the window comes to the
- * background, and expects you will redraw it when the window comes
- * back (by sending a paint event).
- */
+/* Alternatively, you can use a clientDC to paint on the panel at any time.
+   Using this generally does not free you from catching paint events,
+   since it is possible that e.g. the window manager throws away your drawing
+   when the window comes to the background, and expects you will redraw it
+   when the window comes back (by sending a paint event). */
 void wxImagePanel::PaintNow()
 {
     // Depending on your system you may need to look at double-buffered dcs
@@ -109,12 +102,9 @@ void wxImagePanel::PaintNow()
     Render(dc);
 }
 
-/*
- * Here we do the actual rendering. I put it in a separate
- * method so that it can work no matter what type of DC
- * (e.g. wxPaintDC or wxClientDC) is used.
- */
-void wxImagePanel::Render(wxDC& dc)
+/* Here we do the actual rendering. I put it in a separate method so that it
+   can work no matter what type of DC (e.g. wxPaintDC or wxClientDC) is used. */
+void wxImagePanel::Render(wxDC &dc)
 {
     if (!m_image.IsOk())
         return;

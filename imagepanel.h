@@ -4,8 +4,7 @@
  * Author:    Tomay (tomay3000@gmail.com)
  * Created:   2018-05-31
  * Copyright: (c) Tomay
-* License:
-wxWindows licence
+ * License:   wxWindows licence
  **************************************************************/
 
 #ifndef IMAGEPANEL_H
@@ -27,21 +26,21 @@ public:
 
     wxImagePanel(wxWindow *parent,
                  wxWindowID winid = wxID_ANY,
-                 const wxPoint& pos = wxDefaultPosition,
-                 const wxSize& size = wxDefaultSize,
+                 const wxPoint &pos = wxDefaultPosition,
+                 const wxSize &size = wxDefaultSize,
                  long style = wxTAB_TRAVERSAL | wxNO_BORDER,
-                 const wxString& name = _T("ImagePanel"));
+                 const wxString &name = _T("ImagePanel"));
 
-    wxImagePanel(wxWindow *parent, const wxString& file, wxBitmapType type = wxBITMAP_TYPE_ANY);
+    wxImagePanel(wxWindow *parent, const wxString &file, wxBitmapType type = wxBITMAP_TYPE_ANY);
 
     virtual ~wxImagePanel();
 
-    void LoadFile(const wxString& file, wxBitmapType type = wxBITMAP_TYPE_ANY);
-    void LoadFile(wxInputStream& stream, wxBitmapType type = wxBITMAP_TYPE_ANY);
-    void PaintEvent(wxPaintEvent& event);
+    void LoadFile(const wxString &file, wxBitmapType type = wxBITMAP_TYPE_ANY);
+    void LoadFile(wxInputStream &stream, wxBitmapType type = wxBITMAP_TYPE_ANY);
+    void PaintEvent(wxPaintEvent &event);
     void PaintNow();
-    void Render(wxDC& dc);
-    inline void SetImage(wxImage& image)
+    void Render(wxDC &dc);
+    inline void SetImage(wxImage &image)
     {
         m_image = image;
         Refresh();
